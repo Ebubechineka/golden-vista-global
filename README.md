@@ -1,51 +1,61 @@
 # Golden Vista Global — Portfolio
 
-The personal portfolio of **Benito K Chukwuemeka** — self-taught software engineer, designer and book producer.
+Portfolio website for Benito K Chukwuemeka (Golden Vista Global) — self-taught software engineer and designer building business websites, landing pages, web apps and books for clients in Nigeria and internationally.
 
-**Live:** https://ebubechineka.github.io/golden-vista-global/
+## Live site
 
-## What this is
+**https://goldenvistaglobal.vercel.app/**
 
-A single-page portfolio: services and pricing (₦ and $), a live project showcase, published books,
-notes, FAQ and a contact form. Plain HTML, CSS and JavaScript — no build step, no framework,
-no server, no database.
+## How to run locally
 
-## Privacy
+The site is pure static HTML/CSS/JS. No build step is needed.
 
-- No cookies, no advertising, no tracking scripts.
-- The quote form does not post to any third-party service. It opens the visitor's own email app
-  with the message pre-filled, so nothing leaves their device until they press send.
-- No login, no payments, no password fields.
+1. Download or clone this repository.
+2. Open `index.html` in any browser — that's it.
 
-## Run it locally
-
-No dependencies. Either open `index.html` directly, or:
+Or serve it with any static file server:
 
 ```bash
+# Python
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-## Deploy
+## How to update the site
 
-Hosted on GitHub Pages from the `main` branch root. Push to `main` and it redeploys automatically.
+- **Content lives in `index.html`** — all sections (hero, about, projects, services, pricing, FAQ, notes, contact) are plain HTML with clear comments.
+- **New projects**: find the `<!-- PROJECTS -->` section in `index.html`. Copy one existing project card (a `<article class="project-card">` block), paste it, and change the screenshot filename, title, description and live link. Drop the screenshot into `images/portfolio/`.
+- **Contact form**: the quote form does not post to any server. It builds a `mailto:` link and opens the visitor's own email app with the message pre-filled. To change the receiving address, search for `Goldenvistaglobal@gmail.com` in `index.html`.
+
+## How to publish changes
+
+This site is hosted on **Vercel**, deployed from this repository's `main` branch. Any commit to `main` triggers a new deployment automatically.
+
+1. Edit the files locally (or directly on GitHub).
+2. Commit and push to `main`.
+3. Vercel rebuilds and publishes within about a minute.
+
+If you prefer the GitHub web UI:
+
+1. Go to https://github.com/Ebubechineka/golden-vista-global
+2. Click **Add file → Upload files**
+3. Drag in `index.html`, the `images/` folder and the PDF
+4. Click **Commit changes**
+
+## Tech notes
+
+- **Hosting:** Vercel, static deployment, no build step, no server.
+- **No third-party scripts.** The only external request is Google Fonts. There is no analytics, no tracking, no cookie, no form relay.
+- **No cookies, no localStorage, no fingerprinting.** The site is a portfolio: it takes no payments, has no login and asks for no passwords.
+- All asset paths are relative, so the site also works from a sub-path or any other static host.
+- `.nojekyll` is kept so the folder can also be served by GitHub Pages unchanged, if ever needed.
 
 ## Structure
 
 ```
-index.html                      the whole site
-images/                         logo, favicons, portrait, background
-images/portfolio/               project and book cover images
-golden-vista-global-profile.pdf one-page PDF summary
-.nojekyll                       tells GitHub Pages to serve files as-is
+index.html                      the whole site (HTML + CSS + JS in one file)
+golden-vista-global-profile.pdf one-page PDF profile (downloadable)
+images/                         logo, favicons, backgrounds, portrait
+images/portfolio/               project screenshots and book covers
+.nojekyll                       disables Jekyll processing on GitHub Pages
 ```
-
-## Contact
-
-- WhatsApp: +234 816 298 8462
-- Email: Goldenvistaglobal@gmail.com
-- Instagram: [@goldenvistaglobal](https://www.instagram.com/goldenvistaglobal)
-
-## License
-
-MIT — see [LICENSE](LICENSE).
