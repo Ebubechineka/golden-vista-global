@@ -498,17 +498,56 @@ section{scroll-margin-top:88px}
 .step p{font-size:13.5px;line-height:1.68;color:var(--on-navy)}
 
 /* ---------- books ---------- */
-.book-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(14px,1.8vw,22px)}
-.book-card{display:flex;flex-direction:column}
-.book-card .bimg{
-  border:1px solid rgba(201,163,78,.24);overflow:hidden;background:var(--navy-600);
-  box-shadow:0 20px 40px -24px rgba(0,0,0,.9);
-  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+.book-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px)}
+.book-card{
+  display:flex;flex-direction:column;background:var(--navy-600);
+  border:1px solid rgba(201,163,78,.2);
+  transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);
 }
-.book-card:hover .bimg{transform:translateY(-6px);box-shadow:0 30px 54px -24px rgba(0,0,0,.95)}
-.book-card .bimg img{width:100%;aspect-ratio:2/3;object-fit:cover}
-.book-card h3{font-size:13px;color:var(--cream);margin-top:14px;line-height:1.4;letter-spacing:0;font-weight:600}
-.book-card span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.book-card:hover{transform:translateY(-5px);border-color:rgba(201,163,78,.5);box-shadow:0 34px 60px -30px rgba(0,0,0,.95)}
+.book-card .bimg{
+  position:relative;overflow:hidden;background:var(--navy-800);
+  border-bottom:1px solid rgba(201,163,78,.2);
+}
+.book-card .bimg img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.book-card:hover .bimg img{transform:scale(1.035)}
+.book-card .bbody{padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;flex:1}
+.book-card h3{
+  font-family:var(--serif);font-size:clamp(16px,1.7vw,19px);color:var(--cream);
+  margin:0 0 4px;line-height:1.28;letter-spacing:-.005em;font-weight:600;
+}
+.book-card .bsub{
+  font-size:11.5px;color:var(--gold-soft);font-style:italic;margin:0 0 12px;line-height:1.5;
+}
+.book-card .bdesc{font-size:13.5px;line-height:1.68;color:var(--on-navy);margin:0 0 16px}
+.book-card .bmeta{
+  display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px;
+}
+.book-card .bmeta span{
+  font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(201,163,78,.3);padding:5px 9px;border-radius:2px;
+}
+.book-card .blinks{margin-top:auto;display:flex;flex-wrap:wrap;gap:9px}
+.book-card .blinks a{
+  font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--gold-soft);
+  border-bottom:1px solid rgba(201,163,78,.4);padding-bottom:2px;
+  transition:color .25s var(--ease),border-color .25s var(--ease);
+}
+.book-card .blinks a:hover{color:var(--cream);border-color:var(--cream)}
+.book-card .blinks a.primary{color:var(--gold);border-color:var(--gold)}
+.book-card .blinks a.primary:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+.book-badge{
+  position:absolute;top:12px;left:12px;z-index:2;
+  background:var(--gold);color:var(--navy-900);
+  font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 9px;border-radius:2px;
+}
+.book-note{
+  margin-top:clamp(30px,3.6vw,44px);padding-top:clamp(24px,3vw,32px);
+  border-top:1px solid rgba(201,163,78,.2);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+}
+.book-note p{font-size:13.5px;color:var(--on-navy-dim);margin:0;max-width:640px;line-height:1.7}
 
 /* ---------- faq ---------- */
 .faq-list{max-width:860px;margin:0 auto}
@@ -659,7 +698,7 @@ section{scroll-margin-top:88px}
   .price-grid{grid-template-columns:repeat(2,1fr)}
   .result-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:repeat(2,1fr);gap:30px}
-  .book-grid{grid-template-columns:repeat(3,1fr)}
+  .book-grid{grid-template-columns:repeat(2,1fr)}
   .contact-wrap{grid-template-columns:1fr;gap:44px}
   .footer-top{grid-template-columns:1fr 1fr}
 }
@@ -714,7 +753,8 @@ section{scroll-margin-top:88px}
   .value-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr;gap:26px}
-  .book-grid{grid-template-columns:repeat(2,1fr)}
+  .book-grid{grid-template-columns:1fr;gap:22px}
+  .book-card .bimg img{aspect-ratio:16/10;object-position:center 22%}
   .proof-grid{grid-template-columns:repeat(2,1fr);gap:26px 0}
   .proof-item:nth-child(2){border-right:none}
   .form-row{grid-template-columns:1fr}
@@ -869,6 +909,7 @@ section{scroll-margin-top:88px}
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#books">Books</a>
       <a href="#notes">Notes</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -1718,46 +1759,143 @@ section{scroll-margin-top:88px}
 <section class="bg-navy pad" id="books">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow on-dark">Beyond the web</p>
+      <p class="eyebrow on-dark">Books &amp; e-books</p>
       <h2 class="section-title on-dark">Six titles. <em>One imprint.</em></h2>
       <p class="section-lead on-dark">
-        Design and publishing discipline that shows up in the websites too — covers, typography and
-        print production, done to a standard you can hold in your hand.
+        Written, edited, typeset and covered in-house, then exported as print-ready and digital PDFs.
+        A finished book is the hardest thing to fake — the cover has to work at thumbnail size,
+        the interior has to survive print, and the file has to pass a retailer's checker.
       </p>
     </div>
 
     <div class="book-grid">
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-ai-side-hustle.jpg" alt="The 7-Day AI Side Hustle book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>The 7-Day AI Side Hustle</h3>
-        <span>Non-fiction</span>
+        <div class="bimg">
+          <span class="book-badge">Free sample</span>
+          <img src="images/portfolio/book-dont-get-fooled.jpg" alt="Don't Get Fooled — A Complete Guide to Online Scams, book cover" loading="lazy" width="669" height="888">
+        </div>
+        <div class="bbody">
+          <h3>Don't Get Fooled</h3>
+          <p class="bsub">A Complete Guide to Online Scams</p>
+          <p class="bdesc">
+            The English edition. From the fake-bank phone call to the gift-card trick, from phishing to
+            the romance scam — how to recognise every scam, protect your family, and recover what
+            can still be recovered.
+          </p>
+          <div class="bmeta"><span>English</span><span>Print &amp; digital PDF</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/sample_en.html" target="_blank" rel="noopener">Read the free sample</a>
+            <a href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/" target="_blank" rel="noopener">Book page</a>
+          </div>
+        </div>
       </article>
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-non-farti-ingannare.jpg" alt="Non Farti Ingannare book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>Non Farti Ingannare</h3>
-        <span>Italian</span>
+        <div class="bimg">
+          <span class="book-badge">Italian edition</span>
+          <img src="images/portfolio/book-non-farti-ingannare.jpg" alt="Non Farti Ingannare — book cover, navy and gold with an engraved eye-and-book illustration" loading="lazy" width="669" height="913">
+        </div>
+        <div class="bbody">
+          <h3>Non Farti Ingannare</h3>
+          <p class="bsub">Come funzionano davvero le truffe e le frodi online</p>
+          <p class="bdesc">
+            The Italian edition, written for readers who are often not confident online — which is
+            exactly the audience most targeted by scams. Ships as a print-ready PDF, a digital PDF and a
+            free preview chapter used as the lead magnet.
+          </p>
+          <div class="bmeta"><span>Italian</span><span>Print &amp; digital PDF</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://guida-completa-alle-truffe-online-e.vercel.app/" target="_blank" rel="noopener">Visit the book site</a>
+            <a href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/non-farti-ingannare-anteprima.pdf" target="_blank" rel="noopener">Free preview (PDF)</a>
+          </div>
+        </div>
       </article>
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-scam-alert.jpg" alt="Scam Alert book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>Scam Alert</h3>
-        <span>Non-fiction</span>
+        <div class="bimg">
+          <img src="images/portfolio/book-fraud-investigator-course.jpg" alt="The Fraud Investigator's Course book cover" loading="lazy" width="669" height="827">
+        </div>
+        <div class="bbody">
+          <h3>The Fraud Investigator's Course</h3>
+          <p class="bsub">An operational manual and a nine-module training course</p>
+          <p class="bdesc">
+            A complete training programme in tracing, documenting and prosecuting online fraud —
+            built as a course book with module structure, worked examples and exercises.
+          </p>
+          <div class="bmeta"><span>English</span><span>Course book</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/" target="_blank" rel="noopener">See the catalogue</a>
+          </div>
+        </div>
       </article>
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-dog-premium.jpg" alt="The Kind Way to a Well-Behaved Dog book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>The Kind Way to a Well-Behaved Dog</h3>
-        <span>Non-fiction</span>
+        <div class="bimg">
+          <img src="images/portfolio/book-investigatore-antifrode.jpg" alt="Il Corso dell'Investigatore Antifrode book cover" loading="lazy" width="669" height="792">
+        </div>
+        <div class="bbody">
+          <h3>Il Corso dell'Investigatore Antifrode</h3>
+          <p class="bsub">Un programma completo per tracciare, documentare e perseguire le frodi online</p>
+          <p class="bdesc">
+            The Italian edition of the investigator's course — the same programme rebuilt for the
+            Italian market, with localised case material and terminology.
+          </p>
+          <div class="bmeta"><span>Italian</span><span>Course book</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://guida-completa-alle-truffe-online-e.vercel.app/" target="_blank" rel="noopener">Visit the book site</a>
+          </div>
+        </div>
       </article>
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-investigatore-antifrode.jpg" alt="Il Corso dell'Investigatore Antifrode book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>Il Corso dell'Investigatore Antifrode</h3>
-        <span>Italian</span>
+        <div class="bimg">
+          <img src="images/portfolio/book-ai-side-hustle.jpg" alt="The 7-Day AI Side Hustle book cover" loading="lazy" width="669" height="792">
+        </div>
+        <div class="bbody">
+          <h3>The 7-Day AI Side Hustle</h3>
+          <p class="bsub">Make your first $500 using free AI tools — and nothing but your evenings</p>
+          <p class="bdesc">
+            A practical, no-hype guide to earning with free AI tools. No course, no followers, no
+            software to buy — one service, thirty messages, seven days.
+          </p>
+          <div class="bmeta"><span>English</span><span>Digital PDF</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/" target="_blank" rel="noopener">See the catalogue</a>
+          </div>
+        </div>
       </article>
+
       <article class="book-card reveal">
-        <div class="bimg"><img src="images/portfolio/book-fraud-investigator-course.jpg" alt="The Fraud Investigator's Course book cover" loading="lazy" width="669" height="1091"></div>
-        <h3>The Fraud Investigator's Course</h3>
-        <span>Non-fiction</span>
+        <div class="bimg">
+          <img src="images/portfolio/book-dog-premium.jpg" alt="The Kind Way to a Well-Behaved Dog book cover" loading="lazy" width="669" height="791">
+        </div>
+        <div class="bbody">
+          <h3>The Kind Way to a Well-Behaved Dog</h3>
+          <p class="bsub">Humane, reward-based training — from the first sit to a lifetime of calm</p>
+          <p class="bdesc">
+            A complete beginner's guide to reward-based dog training, laid out as a full-length
+            illustrated handbook with a premium print edition.
+          </p>
+          <div class="bmeta"><span>English</span><span>Print &amp; digital PDF</span></div>
+          <div class="blinks">
+            <a class="primary" href="https://ebubechineka.github.io/ITALIAN-SCAM-PREVENTION/" target="_blank" rel="noopener">See the catalogue</a>
+          </div>
+        </div>
       </article>
+
     </div>
+
+    <div class="book-note reveal">
+      <p>
+        Every title above was written, edited, typeset and covered as one job — then exported to
+        print-ready PDF, digital PDF and EPUB. If you have a manuscript, a course or a handbook that
+        needs to become a real book, that is the same process.
+      </p>
+      <a class="btn btn-gold" href="https://wa.me/2348162988462?text=Hi%20Golden%20Vista%20Global%20%E2%80%94%20I%27d%20like%20to%20talk%20about%20a%20book%20project." target="_blank" rel="noopener">Discuss a book project</a>
+    </div>
+  </div>
+</section>
   </div>
 </section>
 
