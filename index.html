@@ -936,6 +936,37 @@ section{scroll-margin-top:88px}
 .guide-tip p{margin:0;font-size:14px;line-height:1.7;color:var(--on-navy)}
 @media(max-width:600px){.guide-step{grid-template-columns:1fr;gap:12px}.guide-n{width:38px;height:38px;font-size:13px}}
 
+/* ---- "New case studies" slim editorial strip ---- */
+.upnext{
+  padding:clamp(30px,3.6vw,42px) 0;
+  background:var(--paper);
+  border-top:1px solid rgba(201,163,78,.34);
+  border-bottom:1px solid var(--line-light);
+}
+.upnext-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(12px,1.6vw,20px);flex-wrap:wrap;text-align:center;
+}
+.upnext-line{
+  font-family:var(--sans);font-size:11.5px;font-weight:700;
+  letter-spacing:.19em;text-transform:uppercase;color:var(--gold-deep);
+  margin:0;display:inline-flex;align-items:center;gap:11px;white-space:nowrap;
+}
+.upnext-line::before{content:"";width:24px;height:1px;background:var(--gold);flex:none}
+.upnext-note{
+  font-size:13.5px;line-height:1.6;color:var(--ink-mute);
+  margin:0;letter-spacing:.005em;
+}
+.upnext-note::before{content:"·";margin-right:clamp(12px,1.6vw,20px);color:var(--gold);font-weight:700}
+@media(max-width:720px){
+  .upnext{padding:26px 0}
+  .upnext-inner{flex-direction:column;gap:9px}
+  .upnext-line{white-space:normal;justify-content:center}
+  .upnext-line::before{display:none}
+  .upnext-note::before{display:none}
+  .upnext-note{max-width:34ch}
+}
+
 /* ---- Analytics note (hidden from visitors) ---- */
 .analytics-note{display:none}
 </style>
@@ -1636,27 +1667,13 @@ section{scroll-margin-top:88px}
   </div>
 </section>
 
-<!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
-<section class="bg-cream pad" id="testimonials">
+<!-- ══════════════════════ NEW CASE STUDIES (slim strip — delete this whole block to remove) ══════════════════════ -->
+<section class="upnext" aria-label="New case studies coming soon">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Client feedback</p>
-      <h2 class="section-title">What clients say.</h2>
-      <p class="section-lead">
-        I would rather show you nothing than show you a quote I wrote myself. Real client
-        feedback goes here as it comes in — with the client's name and the project it refers to.
-      </p>
-    </div>
-
-    <div class="reveal" style="max-width:760px;margin:0 auto;border:1px dashed rgba(11,20,40,.28);border-radius:16px;padding:clamp(24px,4vw,40px);background:rgba(255,255,255,.55);text-align:center">
-      <p style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#0B1428;margin:0 0 14px">
-        “Client testimonials coming soon.”
-      </p>
-      <p style="font-size:14.5px;line-height:1.65;color:#4A5568;margin:0">
-        This space is reserved for verified feedback from real clients. In the meantime, the
-        strongest evidence is the work itself — every project above is live and you can open it
-        and judge it for yourself.
-      </p>
+    <div class="upnext-inner">
+      <span class="upnext-dot" aria-hidden="true"></span>
+      <p class="upnext-line">New case studies coming soon</p>
+      <p class="upnext-note">Recent builds are being written up now — ask and I'll send them directly.</p>
     </div>
   </div>
 </section>
